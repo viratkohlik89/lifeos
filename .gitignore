@@ -5,3 +5,6 @@ android/app/build/
 android/.gradle/
 android/local.properties
 android/build/
+.shots/
+.workbuddy-ai/
+index.backup.html
