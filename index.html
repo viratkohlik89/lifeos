@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en" data-theme="midnight">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>NEXUS — Your Life. In One Place.</title>
+<meta name="description" content="NEXUS — a private, local-first personal operating system. Plan, do, track, learn, grow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./src/css/main.css">
+
+</head>
+<body>
+
+<!-- ==========================================================================
+     NEXUS APP SHELL — Milestone 3
+     ========================================================================== -->
+<div id="nexus-root">
+  <div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar" aria-label="Primary navigation">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <defs>
+              <linearGradient id="logoGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#8B5CF6"/><stop offset=".55" stop-color="#6366F1"/><stop offset="1" stop-color="#06B6D4"/>
+              </linearGradient>
+            </defs>
+            <path d="M5 19V5l14 14V5" stroke="url(#logoGrad)" stroke-width="2.6"
+                  stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+        <span class="brand-text">
+          <span class="brand-name">NEXUS</span>
+          <span class="brand-tag">Your Life. In One Place.</span>
+        </span>
+      </div>
+
+      <nav class="nav" id="sideNav"></nav>
+
+      <div class="side-foot">
+        <button class="ws-switch tip" data-tip="Switch workspace" id="wsSwitch">
+          <span class="ws-mark">P</span>
+          <span class="ws-meta"><b>Personal</b><small id="wsPlan">Free plan</small></span>
+          <span class="chev" aria-hidden="true" style="color:var(--text-3)">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9l4-4 4 4M16 15l-4 4-4-4"/></svg>
+          </span>
+        </button>
+
+        <button class="profile" id="profileBtn">
+          <span class="avatar" id="profileAv">A</span>
+          <span class="profile-meta">
+            <b id="profileName">Alex</b>
+            <small id="profilePlan">NEXUS Free</small>
+          </span>
+        </button>
+      </div>
+    </aside>
+
+    <!-- Main -->
+    <div class="main">
+      <header class="header">
+        <div class="header-left">
+          <button class="iconbtn mobile-only" id="navToggle" aria-label="Open navigation">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+          </button>
+          <div>
+            <div class="header-title" id="headerTitle">Dashboard</div>
+            <div class="header-crumb" id="headerCrumb">Command Center</div>
+          </div>
+        </div>
+
+        <div class="header-actions">
+          <label class="search" for="searchTrigger" role="button" tabindex="0" id="searchTrigger"
+                 aria-label="Search NEXUS (Ctrl+K)">
+            <span class="search-ic">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+            </span>
+            <input id="searchInput" type="text" placeholder="Search NEXUS…" readonly tabindex="-1">
+            <kbd>Ctrl K</kbd>
+          </label>
+
+          <button class="iconbtn tip" data-tip="Notifications" id="notifBtn" aria-label="Notifications">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg>
+            <span class="iconbtn-badge" id="notifBadge" hidden></span>
+          </button>
+
+          <button class="iconbtn tip" data-tip="Theme" id="themeBtn" aria-label="Change theme">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 109 9 7 7 0 01-9-9z"/></svg>
+          </button>
+
+          <!-- The visible path to pricing (M46). It is a view of the entitlement
+               — `Shell.syncPlan()` shows it only while the licence is Free — so
+               it disappears of its own accord the moment Pro is activated, and
+               there is no second place that has to remember to hide it.
+               The glyph is an inline SVG rather than `icon()`, because this is
+               STATIC html: there is no template literal here to interpolate a
+               helper call, and writing one would print the call as text. -->
+          <button class="btn btn-primary btn-sm price-cta-btn" id="upgradeBtn" hidden>
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg>
+            <span class="price-cta-txt">Upgrade</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="content" id="page-mount" role="main"></main>
+    </div>
+  </div>
+
+  <!-- Bottom navigation (mobile) -->
+  <nav class="bottomnav" id="bottomNav" aria-label="Mobile navigation"></nav>
+</div>
+
+<!-- Toast + overlay mount points -->
+<div id="toast-stack" class="toast-stack" role="status" aria-live="polite"></div>
+<div id="overlay-root"></div>
+
+  <script type="module" src="./src/js/main.js"></script>
+
+</body>
+</html>

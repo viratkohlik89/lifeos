@@ -1,0 +1,20 @@
+{
+  "name": "lifeos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@capacitor/android": "^8.5.2",
+    "@capacitor/cli": "^8.5.2",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "@capacitor/core": "^8.5.2"
+  }
+}
