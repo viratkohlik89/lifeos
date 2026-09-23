@@ -1,3 +1,4 @@
+﻿import { App as CapApp } from '@capacitor/app';
 /* ============================================================================
    NEXUS — MILESTONE 1: JS FOUNDATION
    Namespaced architecture. Feature modules are registered in later milestones.
@@ -2932,7 +2933,7 @@ slip at all.` },
        writes. M40's reset goes through the same two calls — a second seed path
        would be a second definition of "the demo", and the two would drift. */
     demoWorkspace() {
-      return this._reconcile({});
+      return this._reconcile({ tasks: [], projects: [], goals: [], habits: [], upcoming: [], notes: [], journal: [], inbox: [], time: [], activity: [] });
     },
 
     async seedDemo() {
@@ -21148,6 +21149,14 @@ slip at all.` },
            Notifications, NOTIFICATION_KINDS, notificationKind, NOTIFICATION_WAIT_DAYS,
            firstOfNextMonth,
            StorageService, Repo, Settings, todayMeta, greeting, Motion };
+  CapApp.addListener('backButton', ({ canGoBack }) => {
+    if (location.hash.length > 1 && location.hash !== '#dashboard') {
+      window.history.back();
+    } else {
+      CapApp.exitApp();
+    }
+  });
+
   if (typeof window !== 'undefined') window.__NEXUS__ = NEXUS;
   return NEXUS;
 })();
