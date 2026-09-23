@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en" data-theme="midnight">
 <head>
 <meta charset="utf-8">
@@ -93,18 +93,7 @@
             <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a9 9 0 109 9 7 7 0 01-9-9z"/></svg>
           </button>
 
-          <!-- The visible path to pricing (M46). It is a view of the entitlement
-               — `Shell.syncPlan()` shows it only while the licence is Free — so
-               it disappears of its own accord the moment Pro is activated, and
-               there is no second place that has to remember to hide it.
-               The glyph is an inline SVG rather than `icon()`, because this is
-               STATIC html: there is no template literal here to interpolate a
-               helper call, and writing one would print the call as text. -->
-          <button class="btn btn-primary btn-sm price-cta-btn" id="upgradeBtn" hidden>
-            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.1L19 10l-5.1 1.9L12 17l-1.9-5.1L5 10l5.1-1.9z"/><path d="M18 15l.8 2.2L21 18l-2.2.8L18 21l-.8-2.2L15 18l2.2-.8z"/></svg>
-            <span class="price-cta-txt">Upgrade</span>
-          </button>
-        </div>
+                  </div>
       </header>
 
       <main class="content" id="page-mount" role="main"></main>
@@ -123,3 +112,4 @@
 
 </body>
 </html>
+

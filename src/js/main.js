@@ -3110,7 +3110,7 @@ slip at all.` },
     get reviews() { return this.data.reviews; },
     get automations() { return this.data.automations; },
     get templates() { return this.data.templates; },
-    get isPro() { return this.entitlement.status === 'PRO'; },
+    get isPro() { return true; },
 
     /* Setters for the collection getters above.
        Without these, `State.projects = [...]` would resolve to a getter with
@@ -7810,7 +7810,6 @@ slip at all.` },
          what the one unlocked workspace holds, and the single control that opens
          pricing. */
       $('#wsSwitch').addEventListener('click', () => Shell.openWorkspacePanel());
-      $('#upgradeBtn').addEventListener('click', () => Router.go('pro'));
     },
 
     /* The workspace panel. This is a VIEW of the entitlement plus the one
@@ -7932,8 +7931,6 @@ slip at all.` },
       if (label) label.classList.toggle('is-pro', pro);
       /* The header's upgrade button is shown by the same fact that colours the
          chips, so the two can never disagree about whether Pro is active. */
-      const up = $('#upgradeBtn');
-      if (up) up.hidden = pro;
     },
 
     /* The profile chip's name is a view of `State.user.name`, never a copy of it.
@@ -8043,8 +8040,6 @@ slip at all.` },
           } },
         { label: 'Open calendar',    icon: 'calendar', hint: 'Navigate', run: () => Router.go('calendar') },
         { label: 'Open settings',    icon: 'settings', hint: 'Navigate', run: () => Router.go('settings') },
-        { label: 'Open pricing',     icon: 'star',   hint: 'Navigate', run: () => Router.go('pro') },
-        { label: 'Try NEXUS Pro',    icon: 'sparkles', hint: 'Navigate', run: () => Router.go('pro') },
         { label: 'Search everything', icon: 'search', hint: 'Action', run: () => Router.go('search') },
         { label: 'Write a weekly review', icon: 'star', hint: 'Action', run: () => Router.go('reviews', { kind: 'week' }) },
         { label: 'Write a monthly review', icon: 'star', hint: 'Action', run: () => Router.go('reviews', { kind: 'month' }) },
@@ -21041,7 +21036,6 @@ slip at all.` },
     Router.register('time', opts => TimeMachinePage.render(opts));
 
     // NEXUS Pro — Milestone 33. The one place a gate can change its answer.
-    Router.register('pro', () => ProPage.render());
 
     // Automation — Milestone 35, the second Pro feature.
     Router.register('automation', () => AutomationPage.render());
@@ -21160,3 +21154,4 @@ slip at all.` },
   if (typeof window !== 'undefined') window.__NEXUS__ = NEXUS;
   return NEXUS;
 })();
+
