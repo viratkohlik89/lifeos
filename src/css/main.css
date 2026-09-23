@@ -1,4 +1,4 @@
-/* ============================================================================
+﻿/* ============================================================================
    NEXUS — MILESTONE 1: FOUNDATION
    Design tokens, typography, base layout, reusable component styles.
    No feature pages yet. This file is the visual system everything else reuses.
@@ -3269,7 +3269,7 @@ kbd,.kbd{
 }
 .ws-meta{flex:1;min-width:0;text-align:left}
 .ws-meta b{display:block;font-size:var(--fs-xs);font-weight:var(--fw-semi);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.ws-meta small{display:block;font-size:var(--fs-micro);color:var(--text-3)}
+.ws-meta small{display:none;font-size:var(--fs-micro);color:var(--text-3)}
 
 .profile{
   display:flex;align-items:center;gap:var(--sp-3);width:100%;
@@ -3288,7 +3288,7 @@ kbd,.kbd{
 .avatar-lg{width:52px;height:52px;font-size:var(--fs-h3)}
 .profile-meta{flex:1;min-width:0;text-align:left}
 .profile-meta b{display:block;font-size:var(--fs-sm);font-weight:var(--fw-semi);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.profile-meta small{
+.profile-meta small{display:none;
   display:block;font-size:var(--fs-micro);color:var(--text-3);
   overflow:hidden;text-overflow:ellipsis;white-space:nowrap;
 }
@@ -3433,7 +3433,7 @@ kbd,.kbd{
   .sidebar .brand{justify-content:flex-start;padding-left:var(--sp-2);padding-right:var(--sp-2)}
   .sidebar .brand-text,.sidebar .nav-txt,.sidebar .nav-label,.sidebar .nav-pro,
   .sidebar .ws-meta,.sidebar .profile-meta,.sidebar .ws-switch .chev{display:block}
-  .sidebar .brand-text,.sidebar .ws-meta,.sidebar .profile-meta{display:flex}
+  .sidebar .brand-text{display:flex}
   .sidebar .nav-item{justify-content:flex-start;padding:0 var(--sp-3);height:40px}
   .sidebar .ws-switch{width:100%;justify-content:flex-start;padding:var(--sp-2) var(--sp-3)}
   .sidebar .profile{justify-content:flex-start;padding:var(--sp-3) var(--sp-2) 0}
