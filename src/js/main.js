@@ -2933,7 +2933,7 @@ slip at all.` },
        writes. M40's reset goes through the same two calls — a second seed path
        would be a second definition of "the demo", and the two would drift. */
     demoWorkspace() {
-      return this._reconcile({ tasks: [], projects: [], goals: [], habits: [], upcoming: [], notes: [], journal: [], inbox: [], time: [], activity: [] });
+      return this._reconcile({ tasks: [], projects: [], goals: [], habits: [], upcoming: [], notes: [], journal: [], inbox: [], time: [], activity: [], transactions: [], files: [], user: { name: '', focus: [], onboardedAt: null }, finance: { currency: 'USD', budgets: {} } });
     },
 
     async seedDemo() {
