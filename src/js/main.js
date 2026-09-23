@@ -1831,7 +1831,7 @@ const NEXUS = (() => {
 
   const FeatureAccess = {
     allows() {
-      return !!(State.data && State.entitlement && State.entitlement.status === 'PRO');
+      return true;
     },
     /* The whole list with its live lock state — the upgrade page reads this. */
     list() {
